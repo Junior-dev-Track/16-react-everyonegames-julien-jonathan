@@ -1,4 +1,26 @@
 .search {
-    grid-area: search;
-    background-color: yellow;
+  grid-area: search;
+  background-color: #495567;
+  width: calc(100% - 78px);
+  border-radius: 10px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+
+  input {
+    flex: 1;
+    height: 100%;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--bg-search);
+    color: var(--font-color);
+    padding-left: 10px;
+    outline: none; // Remove default focus outline
+  }
+
+  .search-icon {
+    margin-right: 10px;
+    color: #fff;
+  }
 }
