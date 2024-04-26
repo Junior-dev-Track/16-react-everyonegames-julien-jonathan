@@ -3,7 +3,10 @@ import { Outlet } from 'react-router-dom';
 import Navbar from '../components/Navbar/Navbar';
 import GamePage from '../components/Game/GamePage';
 
-function Game() {
+export default function Game() {
+
+
+
 	return (
 		<>
 			<div className="container game">
@@ -14,4 +17,4 @@ function Game() {
 	);
 }
 
-export default Game;
+

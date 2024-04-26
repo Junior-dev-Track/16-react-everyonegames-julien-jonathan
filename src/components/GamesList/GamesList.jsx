@@ -8,6 +8,8 @@ export default function GamesList() {
 
 	const [isLoading, setIsLoading] = useState(true);
 
+
+
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
