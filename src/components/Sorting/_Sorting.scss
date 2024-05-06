@@ -1,32 +1,41 @@
 .sort {
 	grid-area: sort;
 	display: flex;
-    align-items: center;
-	gap: 16px;
+	flex-direction: column;
+	align-items: center;
+	gap: 8px;
 
 	h3 {
-		width: 100%;
+		align-self: flex-start;
 	}
 
-	& .sort__type {
+	.sort__types {
 		display: flex;
-        align-items: center;
 		gap: 16px;
-		border-radius: 16px;
-		padding: 4px;
-		color: var(--font-color);
-        background-color: var(--bg-buttons);
-        
 
+		& .sort__type {
+			display: flex;
+			align-items: center;
+			text-align: center;
+			gap: 16px;
 
-        & button {
-            cursor: pointer;
-			 background-color: var(--bg-buttons);
-			 
+			border-radius: 16px;
+			padding: 4px;
+			color: var(--font-color);
+			background-color: var(--bg-buttons);
 
-			> * {
-				pointer-events: none;
+			&:has(button.active) {
+				background-color: transparent;
+				box-shadow: 0 0 10px 2px hsla(237, 80%, 75%, 0.25);
 			}
-        }
+		}
 	}
+}
+
+.filter__button {
+
+	> * {
+		pointer-events: none;
+	}
+
 }

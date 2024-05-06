@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useOutletContext } from 'react-router-dom';
 import Card from './Card/Card';
+import { lastThreeMonthsCalculation } from './utils/dateSearch';
 const API_KEY = import.meta.env.VITE_API_KEY;
 
 
@@ -8,19 +9,17 @@ export default function GamesList({handleFilter}) {
 	const [games, setGames] = useState();
 	const [pageNumber, setpageNumber] = useState(1);
 	const [sort, filter] = useOutletContext();
+	const [today, lastThreeMonths] = lastThreeMonthsCalculation();
 
 	const [isLoading, setIsLoading] = useState(true);
 
-let url = `https://api.rawg.io/api/games?key=${API_KEY}&dates=2024-04-01,2024-04-24&ordering=${sort}&${filter.type}=${filter.id}`;
+let url = `https://api.rawg.io/api/games?key=${API_KEY}&dates=${lastThreeMonths},${today}&ordering=${sort}&${filter.type}=${filter.id}`;
 
 	useEffect(() => {
 		console.log(url)
 		const fetchData = async () => {
 			try {
-				const response = await fetch(
-					url
-					
-				);
+				const response = await fetch(url);
 				const datas = await response.json();
 				console.log(datas)
 				// setNextPage(datas.next)

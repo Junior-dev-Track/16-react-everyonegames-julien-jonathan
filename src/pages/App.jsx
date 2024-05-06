@@ -8,20 +8,37 @@ import Filters from '../components/Filters/Filters';
 export const GameContext = createContext();
 
 export default function App() {
-	const [sort, setSort] = useState('');
+	const [sort, setSort] = useState('-rating');
 	const [filter, setFilter] = useState({ type: '', id: 0, name: '' });
 	const [gameList, setGameList] = useState('');
+	const [activeSort, setActiveSort] = useState('');
+	const [activeFilter, setActiveFilter] = useState('');
 	const list = 'genres';
 
 	const handleSort = (e) => {
-		console.log('handlesort');
-		console.log(e);
-		setSort(e.target.value);
+		if (e.target.classList.contains('active')) {
+			activeSort.classList.remove('active');
+			setSort('');
+			setActiveSort('');
+		} else {
+			activeSort == ''
+				? null
+				: activeSort.classList.contains('active')
+				? activeSort.classList.remove('active')
+				: activeSort.classList.remove('active');
+			e.target.classList.add('active');
+			setSort(e.target.value);
+			setActiveSort(e.target);
+		}
 	};
 
 	const handleFilter = (e) => {
-		console.log(e.target.parentElement);
-		if (e.target.parentElement.getAttribute('data-filter-type') == 'delete') {
+		if (
+			e.target.parentElement.getAttribute('data-filter-type') == 'delete' ||
+			e.target.classList.contains('active')
+		) {
+			setActiveFilter('');
+			activeFilter.classList.remove('active');
 			setFilter({
 				...filter,
 				type: '',
@@ -29,6 +46,9 @@ export default function App() {
 				name: '',
 			});
 		} else {
+			activeFilter == '' ? null : activeFilter.classList.remove('active');
+			e.target.classList.add('active');
+			setActiveFilter(e.target);
 			setFilter({
 				...filter,
 				id: e.target.parentElement.getAttribute('data-filter-platform'),
@@ -39,13 +59,8 @@ export default function App() {
 	};
 
 	const handleGameList = (e) => {
-		console.log('handleGameList');
-		console.log(e.target.parentElement.getAttribute('data-game-list'));
 		let newList = e.target.parentElement.getAttribute('data-game-list');
-		console.log(newList);
-		// setGameList(e.target.parentElement.getAttribute('data-game-list'));
 		setGameList(newList);
-		console.log(gameList);
 	};
 
 	return (

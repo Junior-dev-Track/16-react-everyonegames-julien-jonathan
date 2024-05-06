@@ -33,9 +33,9 @@ export default function PlatformsLogo({ platform }) {
 			<SiSega />
 		) : platformName == 'iOS' ? (
 			<SiIos />
-		) : platformName == 'Commodore' ? (
+		) : platformName == 'Commodore' || platformName == 'Commodore / Amiga' ? (
 			<SiCommodore />
-		) : platformName == 'Apple' ? (
+		) : platformName == 'Apple' || platformName == 'Apple Macintosh' ? (
 			<FaApple />
 		) : platformName == 'Android' ? (
 			<FaAndroid />

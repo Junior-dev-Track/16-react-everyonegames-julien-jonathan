@@ -1,17 +1,18 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import App from "./pages/App";
-import Game from "./pages/Game";
-import ErrorPage from "./pages/ErrorPage.jsx";
-import "./index.scss";
-import BestOf from "./components/GamesList/BestOf.jsx";
-import GamesList from "./components/GamesList/GamesList.jsx";
-import NewReleases from "./components/GamesList/NewReleases.jsx";
-import NextReleases from "./components/GamesList/NextReleases.jsx";
-import GamePage from "./components/Game/GamePage";
-import GamesByGenre from "./components/GamesList/GamesByGenre.jsx";
-import SearchPage from "./components/Search/SearchPage.jsx";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import App from './pages/App';
+import Game from './pages/Game';
+import ErrorPage from './pages/ErrorPage.jsx';
+import './index.scss';
+import './components/GamesList/utils/dateSearch.js'
+import BestOf from './components/GamesList/BestOf.jsx';
+import GamesList from './components/GamesList/GamesList.jsx';
+import NewReleases from './components/GamesList/NewReleases.jsx';
+import NextReleases from './components/GamesList/NextReleases.jsx';
+import GamePage from './components/Game/GamePage';
+import GamesByGenre from './components/GamesList/GamesByGenre.jsx';
+import SearchPage from './components/Search/SearchPage.jsx';
 
 const router = createBrowserRouter([
 	{
@@ -40,10 +41,6 @@ const router = createBrowserRouter([
 				element: <GamesByGenre />,
 			},
 			{
-				path: '/games/platform/:filterId/:slug',
-				element: <GamesByGenre />,
-			},
-			{
 				path: '/search-page',
 				element: <SearchPage />,
 			},
@@ -55,8 +52,8 @@ const router = createBrowserRouter([
 	},
 ]);
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>,
+ReactDOM.createRoot(document.getElementById('root')).render(
+	<React.StrictMode>
+		<RouterProvider router={router} />
+	</React.StrictMode>
 );

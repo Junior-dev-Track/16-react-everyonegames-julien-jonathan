@@ -14,50 +14,50 @@ export default function Navbar() {
   };
 
   return (
-    <>
-      <div className="navbar">
-        <nav className="navbar__icons">
-          <ul>
-            <li>
-              <NavLink
-                to="/"
-                className={({ isActive }) => (isActive ? "active" : "")}
-              >
-                <FaHome />
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/best-of"
-                className={({ isActive }) => (isActive ? "active" : "")}
-              >
-                <FaStar />
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/new-releases"
-                className={({ isActive }) => (isActive ? "active" : "")}
-              >
-                <MdFiberNew />
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/next-releases'"
-                className={({ isActive }) => (isActive ? "active" : "")}
-              >
-                <IoIosHourglass />
-              </NavLink>
-            </li>
-          </ul>
-        </nav>
-        <button onClick={toggleDarkMode}>
-          {darkMode ? <FaLightbulb /> : <FaMoon />}
-        </button>
-      </div>
-    </>
-  );
+		<>
+			<div className='navbar'>
+				<nav>
+					<ul className='navbar__icons'>
+						<li>
+							<NavLink
+								to='/'
+								className={({ isActive }) => (isActive ? 'active' : '')}
+							>
+								<FaHome />
+							</NavLink>
+						</li>
+						<li>
+							<NavLink
+								to='/best-of'
+								className={({ isActive }) => (isActive ? 'active' : '')}
+							>
+								<FaStar />
+							</NavLink>
+						</li>
+						<li>
+							<NavLink
+								to='/new-releases'
+								className={({ isActive }) => (isActive ? 'active' : '')}
+							>
+								<MdFiberNew />
+							</NavLink>
+						</li>
+						<li>
+							<NavLink
+								to="/next-releases"
+								className={({ isActive }) => (isActive ? 'active' : '')}
+							>
+								<IoIosHourglass />
+							</NavLink>
+						</li>
+					</ul>
+				</nav>
+				<button onClick={toggleDarkMode}>
+					{darkMode ? <FaLightbulb /> : <FaMoon />}
+				</button>
+			</div>
+		</>
+	);
 }
 
 // new release/next release

@@ -1,19 +1,22 @@
 .filters {
 	grid-area: filters;
 	display: flex;
+	flex-direction: column;
 	align-items: center;
-	gap: 16px;
+	gap: 8px;
+
+	h3 {
+		align-self: flex-start;
+	}
 
 	.filters__platforms {
 		display: flex;
 		align-items: center;
-		justify-content: center;
+		align-self: flex-start;
 		gap: 8px;
-		bottom: 8px;
-		right: 8px;
 		padding: 8px;
 		border-radius: 32px;
-		background-color: hsla(224, 32%, 9%, 0.75);
+		background-color: var(--bg-buttons);
 
 		color: var(--font-color);
 

@@ -6,6 +6,7 @@ body {
 	justify-content: center;
 	min-width: 320px;
 	min-height: 100vh;
+	transition: 0.5s;
 }
 
 #root {
@@ -14,8 +15,11 @@ body {
 
 .container {
 	width: 100%;
-	max-width: 1440px;
+	width: min(100vw, 1440px);
+	// min-width: 100vw;
+	// max-width: 1440px;
 	margin: 0 auto;
+	padding: 0 32px;
 	display: grid;
 	gap: 40px;
 	align-items: start;
@@ -23,15 +27,3 @@ body {
 	grid-auto-columns: min-content min-content 1fr;
 }
 
-// @media (prefers-color-scheme: light) {
-// 	:root {
-// 		color: #213547;
-// 		background-color: #ffffff;
-// 	}
-// 	a:hover {
-// 		color: #747bff;
-// 	}
-// 	button {
-// 		background-color: #f9f9f9;
-// 	}
-// }
